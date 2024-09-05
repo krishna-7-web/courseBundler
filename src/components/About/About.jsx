@@ -15,7 +15,6 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import pic from "../../assets/docs/images/pic.webp";
 import termsAndCondition from "../../assets/docs/termsAndConditions";
-import introVideo from "../../assets/docs/videos/introVideo.mp4";
 
 const Founder = () => (
   <Stack direction={["column", "row"]} spacing={["4", "16"]} padding={"8"}>
@@ -39,7 +38,9 @@ const Founder = () => (
 const VideoPlayer = () => (
   <Box>
     <video
-      src={introVideo}
+      src={
+        "https://res.cloudinary.com/dwfibnfkg/video/upload/v1725342006/CorseBundler/86c5381d-bd94-40fa-974a-f2f2b1f3c2f1.mp4"
+      }
       autoPlay
       muted
       controls
