@@ -40,8 +40,6 @@ function App() {
     (state) => state.api.queries["getMyProfile(undefined)"]?.data
   );
 
-  console.log(profile);
-
   return (
     <Router>
       {isLoading ? (

@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 import { RiDashboardFill, RiLogoutBoxLine, RiMenu5Fill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
-import { useLazyLogoutQuery } from "../../redux/api/userApi";
+import { useLogoutMutation } from "../../redux/api/userApi";
 
 const LinkButton = ({ url = "/", title = "Home", onClose }) => (
   <Link onClick={onClose} to={url}>
@@ -25,7 +25,7 @@ const LinkButton = ({ url = "/", title = "Home", onClose }) => (
 const Header = ({ isAuthenticated = false, user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
-  const [logout, { isLoading }] = useLazyLogoutQuery();
+  const [logout, { isLoading }] = useLogoutMutation();
 
   // const dispatch = useDispatch();
 

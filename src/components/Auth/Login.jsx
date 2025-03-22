@@ -27,9 +27,9 @@ const Login = () => {
     try {
       const result = await login({ email, password }).unwrap();
 
-      toast.success(result.message);
+      toast.success(result?.message);
     } catch (err) {
-      toast.error(err.data.message);
+      toast.error(err?.data);
     }
   };
 

@@ -2,6 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const server = import.meta.env.VITE_SERVER;
 
+console.log("server", import.meta.env.VITE_SERVER);
+
 const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: `${server}` }),
@@ -20,12 +22,13 @@ const api = createApi({
       invalidatesTags: ["Profile"],
     }),
 
-    logout: builder.query({
+    logout: builder.mutation({
       query: () => ({
         url: "/logout",
+        method: "POST",
         credentials: "include",
       }),
-      providesTags: ["Profile"],
+      invalidatesTags: ["Profile"],
     }),
 
     getMyProfile: builder.query({
@@ -256,7 +259,7 @@ export default api;
 export const {
   useLoginMutation,
   useGetMyProfileQuery,
-  useLazyLogoutQuery,
+  useLogoutMutation,
   useRegisterMutation,
   useUpdateProfileMutation,
   useUpdateProfilePictureMutation,

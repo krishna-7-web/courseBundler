@@ -8,12 +8,14 @@ import {
   FormLabel,
   Heading,
   Input,
+  Text,
   VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../../redux/api/userApi";
+import { RiGoogleFill } from "react-icons/ri";
 
 export const fileUploadCss = {
   cursor: "pointer",
@@ -76,7 +78,7 @@ const Register = () => {
   };
 
   return (
-    <Container height={"95vh"}>
+    <Container height={"100vh"}>
       <VStack height={"full"} justifyContent={"center"} spacing={"8"}>
         <Heading children={"Registration"} textTransform={"uppercase"} />
 
@@ -154,6 +156,19 @@ const Register = () => {
               </Button>{" "}
             </Link>
             here
+          </Box>
+
+          <Box textAlign={"center"}>
+            <Text textAlign={"center"}>OR</Text>
+            <Button
+              width={"full"}
+              leftIcon={<RiGoogleFill size={"1.5rem"} />}
+              isLoading={isLoading}
+              my={"4"}
+              colorScheme="purple"
+            >
+              Continue with Google
+            </Button>
           </Box>
         </form>
       </VStack>
