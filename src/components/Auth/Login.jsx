@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-children-prop */
 import {
   Box,
@@ -19,7 +20,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   // Initialize the login mutation hook
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, error }] = useLoginMutation();
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -28,8 +29,8 @@ const Login = () => {
       const result = await login({ email, password }).unwrap();
 
       toast.success(result?.message);
-    } catch (err) {
-      toast.error(err?.data);
+    } catch (error) {
+      toast.error(error?.data?.message || "email or password is incorrect");
     }
   };
 
